@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página web con servidor HTTP</title>
+</head>
+<body>
+    <h1>Cliente</h1>
+    <button id="requestButton">Realizar solicitud al servidor</button>
+    <p id="responseText"></p>
+
+    <script>
+        document.getElementById('requestButton').addEventListener('click', function() {
+            fetch('/solicitud-al-servidor')  // Realiza una solicitud al servidor
+                .then(response => response.text())  // Obtiene el texto de la respuesta
+                .then(data => {
+                    document.getElementById('responseText').innerText = data;  // Muestra la respuesta en la página
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+    <script>
+        const http = require('http');
+
+        // Función de manejo de peticiones
+        const requestHandler = (request, response) => {
+        response.writeHead(200, { 'Content-Type': 'text/plain' });
+        response.end('¡Hola, mundo!\n');
+        };
+
+        // Crear un servidor HTTP
+        const server = http.createServer(requestHandler);
+
+        // Escuchar en el puerto 3000
+        const port = 3000;
+        server.listen(port, () => {
+        console.log(`Servidor HTTP en ejecución en http://localhost:${port}`);
+        });
+
+    </script>
+</body>
+</html>

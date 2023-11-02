@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Página web con servidor HTTP</title>
+    <title>Mi Página Web en GitHub Pages</title>
 </head>
 <body>
-    <h1>Cliente</h1>
-    <button id="requestButton">Realizar solicitud al servidor</button>
-    <p id="responseText"></p>
+    <h1>Hola desde mi página web</h1>
+    <p>Bienvenido a mi página web de prueba en GitHub Pages.</p>
 </body>
 </html>
